@@ -118,29 +118,18 @@ namespace DatabaseRepoLib.Classes
             {
                 try
                 {
-                    //TODO Bygga upp en klass och sen retunera denna.
                     command.ExecuteNonQuery();
 
                     var reader = command.ExecuteReader();
 
-                    //var modelIdName = model.GetType().GetProperty($"{model.GetType().Name}Id").ToString();
-                    //var sqlTableName = "";
                     var list = model.GetType().GetProperties();
 
                     while (reader.Read())
                     {
                         for (int i = 0; i < list.Length; i++)
                         {
-                            if (!list[i].GetType().ToString().Contains("Boolean"))
-                            {
-                                list[i].SetValue(model, reader[reader.GetName(i)]);
-                            }
-                            else
-                            {
-                                list[i].SetValue(model, (bool)reader[reader.GetName(i)]);
-                            }
+                            list[i].SetValue(model, reader[reader.GetName(i)]);
                         }
-                        //databaseHolder.Model = new object { (model.GetType().GetProperty($"{model.GetType().Name}Id").GetType() = int.Parse(model.GetType().GetProperty($"{model.GetType().Name}Id").GetValue(model).ToString()) };
                     }
                     databaseHolder.Model = model;
                     reader.Close();
@@ -155,7 +144,7 @@ namespace DatabaseRepoLib.Classes
                     con.Close();
                 }
             }
-            else
+            else if(type == MethodType.GetAll)
             {
                 try
                 {
@@ -164,9 +153,16 @@ namespace DatabaseRepoLib.Classes
 
                     var reader = command.ExecuteReader();
 
+                    var list = model.GetType().GetProperties();
                     while (reader.Read())
                     {
-
+                        var newModel = Activator.CreateInstance(model.GetType());
+                        for (int i = 0; i < list.Length; i++)
+                        {
+                            object value = reader[reader.GetName(i)];
+                            list[i].SetValue(newModel, value);
+                        }
+                        databaseHolder.List.Add(newModel);
                     }
                     reader.Close();
                 }
@@ -280,7 +276,7 @@ namespace DatabaseRepoLib.Classes
 
         public List<object> GetAll(object model)
         {
-            var result = DataBaseHandle(model, MethodType.GetOne);
+            var result = DataBaseHandle(model, MethodType.GetAll);
 
             return result.List;
         }
