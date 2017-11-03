@@ -51,6 +51,7 @@ namespace DatabaseUnitTests
             list.Add(party);
             var foundPartyList = dbRepo.GetAll(new Party());
             var list2 = foundPartyList.Cast<Party>().ToList();
+            var x = 0;
             Assert.Equal(party, list2[0]);
         }
     }
