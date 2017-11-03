@@ -1,0 +1,9 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.csprojResolveAssemblyReference.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\bin\Debug\netcoreapp2.0\FactoryLib.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\bin\Debug\netcoreapp2.0\FactoryLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\bin\Debug\netcoreapp2.0\FactoryLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\FactoryLib\obj\Debug\netcoreapp2.0\FactoryLib.pdb

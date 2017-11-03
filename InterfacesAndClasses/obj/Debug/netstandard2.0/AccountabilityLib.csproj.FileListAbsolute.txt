@@ -1,0 +1,9 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\bin\Debug\netstandard2.0\AccountabilityLib.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\bin\Debug\netstandard2.0\AccountabilityLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\bin\Debug\netstandard2.0\AccountabilityLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.csprojResolveAssemblyReference.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\InterfacesAndClasses\obj\Debug\netstandard2.0\AccountabilityLib.pdb

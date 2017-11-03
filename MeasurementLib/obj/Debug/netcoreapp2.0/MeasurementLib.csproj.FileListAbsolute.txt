@@ -1,0 +1,9 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\bin\Debug\netcoreapp2.0\MeasurementLib.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\bin\Debug\netcoreapp2.0\MeasurementLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\bin\Debug\netcoreapp2.0\MeasurementLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.csprojResolveAssemblyReference.cache

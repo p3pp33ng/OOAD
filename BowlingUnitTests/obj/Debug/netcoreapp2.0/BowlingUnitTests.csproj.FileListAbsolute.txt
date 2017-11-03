@@ -1,0 +1,14 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingUnitTests.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingUnitTests.runtimeconfig.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingUnitTests.runtimeconfig.dev.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingUnitTests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingUnitTests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.pdb

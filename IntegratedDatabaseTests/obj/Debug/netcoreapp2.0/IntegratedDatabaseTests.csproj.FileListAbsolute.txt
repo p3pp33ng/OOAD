@@ -1,0 +1,14 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\IntegratedDatabaseTests.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\IntegratedDatabaseTests.runtimeconfig.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\IntegratedDatabaseTests.runtimeconfig.dev.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\IntegratedDatabaseTests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\bin\Debug\netcoreapp2.0\IntegratedDatabaseTests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\IntegratedDatabaseTests\obj\Debug\netcoreapp2.0\IntegratedDatabaseTests.csprojResolveAssemblyReference.cache

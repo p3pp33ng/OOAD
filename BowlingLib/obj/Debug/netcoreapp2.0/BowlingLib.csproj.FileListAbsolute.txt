@@ -1,0 +1,13 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\BowlingLib.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\BowlingLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\BowlingLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.csprojResolveAssemblyReference.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\obj\Debug\netcoreapp2.0\BowlingLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\AccountabilityLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\MeasurementLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\AccountabilityLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\MeasurementLib.pdb

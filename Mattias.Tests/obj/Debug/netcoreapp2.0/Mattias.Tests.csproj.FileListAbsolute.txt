@@ -1,0 +1,14 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\Mattias.Tests.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\Mattias.Tests.runtimeconfig.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\Mattias.Tests.runtimeconfig.dev.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\Mattias.Tests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\bin\Debug\netcoreapp2.0\Mattias.Tests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\Mattias.Tests\obj\Debug\netcoreapp2.0\Mattias.Tests.csprojResolveAssemblyReference.cache

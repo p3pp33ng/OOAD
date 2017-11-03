@@ -1,0 +1,9 @@
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.deps.json
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.AssemblyInfoInputs.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.AssemblyInfo.cs
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\DatabaseRepoLib\obj\Debug\netcoreapp2.0\DatabaseRepoLib.csprojResolveAssemblyReference.cache
