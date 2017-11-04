@@ -1659,6 +1659,40 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "AccountabilityLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AccountabilityLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AccountabilityLib.dll": {}
+        }
+      },
+      "BowlingLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AccountabilityLib": "1.0.0",
+          "MeasurementLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BowlingLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BowlingLib.dll": {}
+        }
+      },
+      "MeasurementLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MeasurementLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MeasurementLib.dll": {}
+        }
       }
     }
   },
@@ -5604,10 +5638,26 @@
         "xunit.runner.visualstudio.2.2.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "AccountabilityLib/1.0.0": {
+      "type": "project",
+      "path": "../InterfacesAndClasses/AccountabilityLib.csproj",
+      "msbuildProject": "../InterfacesAndClasses/AccountabilityLib.csproj"
+    },
+    "BowlingLib/1.0.0": {
+      "type": "project",
+      "path": "../BowlingLib/BowlingLib.csproj",
+      "msbuildProject": "../BowlingLib/BowlingLib.csproj"
+    },
+    "MeasurementLib/1.0.0": {
+      "type": "project",
+      "path": "../MeasurementLib/MeasurementLib.csproj",
+      "msbuildProject": "../MeasurementLib/MeasurementLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "BowlingLib >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
       "xunit >= 2.2.0",
@@ -5646,7 +5696,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Jesper Engdahl\\source\\repos\\OOADInlämningsUppgift\\BowlingLib\\BowlingLib.csproj": {
+              "projectPath": "C:\\Users\\Jesper Engdahl\\source\\repos\\OOADInlämningsUppgift\\BowlingLib\\BowlingLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
