@@ -12,7 +12,7 @@ namespace BowlingLib
     {
         public void GetWinnerOfContest()
         {
-
+            //TODO Så man får vinnaren för det året eller match eller tävling
         }
 
         public Party CreateANewPlayer(string legalId, string name, string address, bool isManager = false)
@@ -36,7 +36,7 @@ namespace BowlingLib
         public void CreateANewContest(int[] competitors, int managerId, int timePeriodId, int contestTypeId)
         {
             var database = new DataBaseRepo();
-
+            var contestIds = new List<int>();
             for (int i = 0; i < competitors.Length; i++)
             {
                 var contest = new Contest
@@ -46,13 +46,21 @@ namespace BowlingLib
                     ManagerId = managerId,
                     TimePeriodId = timePeriodId
                 };
-                database.Save(contest);
+                var databaseHolder =(DatabaseHolder)database.Save(contest);
+                contestIds.Add(databaseHolder.PrimaryKey);
             }
+            //TODO Skapa matcher med två motspelare.
+
+            //TODO Skapa en lane för varje match.
+
+            //TODO Skapa tre serier för varje spelare.
+
+            //TODO Spela matcherna och skapa Score för att lägg till i matcherna.
         }
 
         public void SeeMatches()
         {
-
+            //TODO Retunera alla matcher, kanske lägga till så att man kan sortera på år eller liknade.
         }
     }
 }
