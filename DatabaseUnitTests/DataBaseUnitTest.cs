@@ -16,7 +16,7 @@ namespace DatabaseUnitTests
         public void SaveToTable()
         {
             //var timePeriod = new TimePeriod { StartDate=DateTime.Now, EndDate=DateTime.Parse("2018-05-28 07:00") };
-            var party = new Party { Address="Vägen 13", IsManager=false, LegalId="8705281425", Name="Test Testsson" };
+            var party = new ContestType {Name="Träningstävling" };
             var dbRepo = new DataBaseRepo();
             var result = (DatabaseHolder)dbRepo.Save(party);
             Assert.Equal(ExecuteCodes.SuccessToExecute, result.ExecuteCodes);
@@ -51,7 +51,6 @@ namespace DatabaseUnitTests
             list.Add(party);
             var foundPartyList = dbRepo.GetAll(new Party());
             var list2 = foundPartyList.Cast<Party>().ToList();
-            var x = 0;
             Assert.Equal(party, list2[0]);
         }
     }

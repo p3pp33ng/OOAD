@@ -12,3 +12,11 @@ C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.AssemblyInfo.cs
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.dll
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\obj\Debug\netcoreapp2.0\BowlingUnitTests.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\AccountabilityLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\DatabaseRepoLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\MeasurementLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\BowlingLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\DatabaseRepoLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\MeasurementLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingUnitTests\bin\Debug\netcoreapp2.0\AccountabilityLib.pdb

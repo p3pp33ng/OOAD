@@ -11,3 +11,5 @@ C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\MeasurementLib.dll
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\AccountabilityLib.pdb
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\MeasurementLib.pdb
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\BowlingLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.pdb
