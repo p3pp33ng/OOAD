@@ -11,10 +11,10 @@ namespace AccountabilityLib.Classes
         public int ManagerId { get; set; }
         public int TimePeriodId { get; set; }
         public int ContestTypeId { get; set; }
-        public Party Competitor { get; set; }
-        public Party Manager { get; set; }
-        public TimePeriod TimePeriod { get; set; }
-        public ContestType ContestType { get; set; }
+        //public Party Competitor { get; set; }
+        //public Party Manager { get; set; }
+        //public TimePeriod TimePeriod { get; set; }
+        //public ContestType ContestType { get; set; }
 
         public Contest CreateContest()
         {

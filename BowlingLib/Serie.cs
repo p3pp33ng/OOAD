@@ -11,9 +11,9 @@ namespace BowlingLib
         public int TurnCounter { get; set; }
         public int PartyId { get; set; }
         public int LaneId { get; set; }
-        public Party Party { get; set; }
-        public Score Score { get; set; }
-        public Lane Lane { get; set; }
+        //public Party Party { get; set; }
+        //public Score Score { get; set; }
+        //public Lane Lane { get; set; }
 
         //TODO Fixa dessa metoder
         public int RollBall()

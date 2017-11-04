@@ -9,10 +9,12 @@ namespace BowlingLib
     {
         public int MatchId { get; set; }
         public int ContestTypeId { get; set; }
-        public List<Party> Competing { get; set; }
+        //public List<Party> Competing { get; set; }
         public int LaneId { get; set; }
-        public Contest Contest { get; set; }
-        public Lane Lane { get; set; }
+        public int QuantityId { get; set; }
+        public int UnitId { get; set; }
+        //public Contest Contest { get; set; }
+        //public Lane Lane { get; set; }
 
         public Party CalculateWinner(Lane lane)
         {
