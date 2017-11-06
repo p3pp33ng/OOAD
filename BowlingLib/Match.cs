@@ -24,12 +24,12 @@ namespace BowlingLib
             return new Party();
         }
 
-        public List<Lane> CreateLanes(int competitorId, int contestId, Match match, int turncounter, int loopLength)
+        public void CreateLanes(int competitorId, int contestId, Match match, int turncounter, int loopLength)
         {
-            var lanes = new List<Lane>();
             var database = new DataBaseRepo();
             var listOfUnitIds = database.GetAll(new Unit());
             var unitId = new object();
+
             foreach (var unit in listOfUnitIds)
             {
                 if (unit.GetType().GetProperty("Name").ToString().ToLower() == "spelare")
@@ -44,6 +44,7 @@ namespace BowlingLib
                     Amount = 2,
                     UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
                 });
+
             if (turncounter % 2 == 0)
             {
                 var lane = new Lane
@@ -56,6 +57,7 @@ namespace BowlingLib
                 match.LaneId = primaryKeyLane.PrimaryKey;
                 lane.CreateSerie(primaryKeyLane.PrimaryKey);
             }
+
             if (turncounter % 2 == 1 && turncounter == loopLength)
             {
                 var oddQuantity = (DatabaseHolder)database.Save
@@ -74,8 +76,6 @@ namespace BowlingLib
                 match.LaneId = primaryKeyLane.PrimaryKey;
                 lane.CreateSerie(primaryKeyLane.PrimaryKey);
             }
-
-            return lanes;
         }
     }
 }

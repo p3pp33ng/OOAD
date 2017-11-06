@@ -50,7 +50,7 @@ namespace BowlingLib
                 var match = new Match();
                 var matchId = (DatabaseHolder)database.Save(match);
                 match.MatchId = matchId.PrimaryKey;
-                var lanes = match.CreateLanes(competitors[i], databaseHolder.PrimaryKey, match, i, competitors.Length);
+                match.CreateLanes(competitors[i], databaseHolder.PrimaryKey, match, i, competitors.Length);
             }
 
             //TODO Skapa matcher med två motspelare.

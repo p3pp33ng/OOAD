@@ -10,7 +10,8 @@ namespace BowlingLib
         public int SerieId { get; set; }
         public int TurnCounter { get; set; }
         public int PartyId { get; set; }
-        //public int LaneId { get; set; }
+        public int LaneId { get; set; }
+        public int ScoreId { get; set; }
         //public Party Party { get; set; }
         //public Score Score { get; set; }
         //public Lane Lane { get; set; }
