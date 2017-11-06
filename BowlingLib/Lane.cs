@@ -7,7 +7,7 @@ namespace BowlingLib
     public class Lane
     {
         public int LaneId { get; set; }
-        public int ScoreId { get; set; }
+        //public int ScoreId { get; set; }
         public int MatchId { get; set; }
         public int QuantityId { get; set; }
         public int UnitId { get; set; }
