@@ -29,7 +29,7 @@ namespace BowlingLib
             return new Party();
         }
 
-        public List<Lane> CreateLanes(int[] competitors, int matchId)
+        public List<Lane> CreateLanes(int[] competitors, Match match)
         {
             var lanes = new List<Lane>();
             var database = new DataBaseRepo();
@@ -55,8 +55,9 @@ namespace BowlingLib
                         {
                             UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
                             QuantityId = quantity.PrimaryKey,
-                            MatchId = matchId
+                            MatchId = match.MatchId
                         };
+
                     }
 
                     //TODO Bygga upp serier genom lane.
