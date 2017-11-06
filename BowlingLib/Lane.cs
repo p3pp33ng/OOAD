@@ -15,8 +15,9 @@ namespace BowlingLib
         //public Score Score { get; set; }
         //public List<Serie> Series { get; set; }
 
-        public Serie CreateSerie()
+        public Serie CreateSerie(int laneId)
         {
+
             return new Serie();
         }
     }

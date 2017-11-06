@@ -19,17 +19,12 @@ namespace BowlingLib
         //public Contest Contest { get; set; }
         //public Lane Lane { get; set; }
 
-        public Match()
-        {
-
-        }
-
         public Party CalculateWinner(Lane lane)
         {
             return new Party();
         }
 
-        public List<Lane> CreateLanes(int[] competitors, Match match)
+        public List<Lane> CreateLanes(int competitorId, int contestId, Match match, int turncounter, int loopLength)
         {
             var lanes = new List<Lane>();
             var database = new DataBaseRepo();
@@ -42,33 +37,45 @@ namespace BowlingLib
                     unitId = unit;
                 }
             }
-
-            var evenCompetiorsListOrNot = competitors.Length % 2;
-
-            switch (evenCompetiorsListOrNot)
+            //TODO Bygga upp serier genom lane.
+            var quantity = (DatabaseHolder)database.Save
+                (new Quantity
+                {
+                    Amount = 2,
+                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
+                });
+            if (turncounter % 2 == 0)
             {
-                case 0:
-                    for (int i = 0; i < competitors.Length / 2; i++)
-                    {
-                        var quantity = (DatabaseHolder)database.Save(new Quantity { Amount = 2, UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()) });
-                        var lane = new Lane
-                        {
-                            UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
-                            QuantityId = quantity.PrimaryKey,
-                            MatchId = match.MatchId
-                        };
-
-                    }
-
-                    //TODO Bygga upp serier genom lane.
-                    break;
-                case 1:
-                    break;
-                default:
-                    break;
+                var lane = new Lane
+                {
+                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
+                    QuantityId = quantity.PrimaryKey,
+                    MatchId = match.MatchId
+                };
+                var primaryKeyLane = (DatabaseHolder)database.Save(lane);
+                match.LaneId = primaryKeyLane.PrimaryKey;
+                lane.CreateSerie(primaryKeyLane.PrimaryKey);
             }
-            
+            if (turncounter % 2 == 1 && turncounter == loopLength)
+            {
+                var oddQuantity = (DatabaseHolder)database.Save
+                (new Quantity
+                {
+                    Amount = 1,
+                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
+                });
+                var lane = new Lane
+                {
+                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
+                    QuantityId = oddQuantity.PrimaryKey,
+                    MatchId = match.MatchId
+                };
+                var primaryKeyLane = (DatabaseHolder)database.Save(lane);
+                match.LaneId = primaryKeyLane.PrimaryKey;
+                lane.CreateSerie(primaryKeyLane.PrimaryKey);
+            }
+
             return lanes;
         }
-    }   
+    }
 }
