@@ -37,7 +37,7 @@ namespace BowlingLib
                     unitId = unit;
                 }
             }
-            //TODO Bygga upp serier genom lane.
+            //TODO Bygga upp serier genom lane, även få med båda spelarnas ID:n så att det skapas en separat serie per spelare.
             var quantity = (DatabaseHolder)database.Save
                 (new Quantity
                 {
