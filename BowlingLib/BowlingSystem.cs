@@ -1,6 +1,7 @@
 ﻿using AccountabilityLib;
 using AccountabilityLib.Classes;
 using DatabaseRepoLib.Classes;
+using MeasurementLib;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,9 +47,11 @@ namespace BowlingLib
                     ManagerId = managerId,
                     TimePeriodId = timePeriodId
                 };
-                var databaseHolder =(DatabaseHolder)database.Save(contest);
+                var databaseHolder = (DatabaseHolder)database.Save(contest);
                 contestIds.Add(databaseHolder.PrimaryKey);
             }
+            var match = new Match();
+            match.CreateLane(competitors);
             //TODO Skapa matcher med två motspelare.
 
             //TODO Skapa en lane för varje match.
