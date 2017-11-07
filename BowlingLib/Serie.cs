@@ -17,19 +17,36 @@ namespace BowlingLib
         //public Lane Lane { get; set; }
 
         //TODO Fixa dessa metoder
+        public void PlayRound()
+        {
+            
+        }
+
         public int RollBall()
-        {           
+        {
+            var random = new Random();
+            var point = random.Next(0,10);
+            return point;
+        }
+
+        public int CalculateSpecialPoint(int firstPoint, int secondPoint)
+        {
+            if (firstPoint == 10)
+            {
+
+            }
+            if (firstPoint + secondPoint == 10)
+            {
+               
+            }
             return 1;
         }
 
-        public int CalculateStrike(int points)
+        internal class ScoreBoard
         {
-            return 1;
-        }
-
-        public int CalculateSpare(int points)
-        {
-            return 1;
+            public int PartyId { get; set; }
+            public int[,] Score { get; set; } = new int[2,9];
+            public int[] LastScore { get; set; } = new int[3];
         }
     }
 }
