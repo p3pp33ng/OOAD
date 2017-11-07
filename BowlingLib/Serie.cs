@@ -17,9 +17,20 @@ namespace BowlingLib
         //public Lane Lane { get; set; }
 
         //TODO Fixa dessa metoder
-        public void PlayRound()
+        public int PlayRound(int turnCounter = 10)
         {
-            
+            var result = 0;
+            var scoreBoard = new ScoreBoard();
+            if (turnCounter > 9)
+            {
+              var point = CalculateSpecialPoint(RollBall(),RollBall());
+            }
+            else
+            {
+
+            }
+
+            return result;
         }
 
         public int RollBall()
@@ -29,8 +40,9 @@ namespace BowlingLib
             return point;
         }
 
-        public int CalculateSpecialPoint(int firstPoint, int secondPoint)
+        public SpecialPoints CalculateSpecialPoint(int firstPoint, int secondPoint)
         {
+            var result = SpecialPoints.Regular;
             if (firstPoint == 10)
             {
 
@@ -39,12 +51,20 @@ namespace BowlingLib
             {
                
             }
-            return 1;
+            return result;
+        }
+
+        public enum SpecialPoints
+        {
+            Strike,
+            Spare,
+            Regular
         }
 
         internal class ScoreBoard
         {
             public int PartyId { get; set; }
+            public SpecialPoints SpecialPoints { get; set; }
             public int[,] Score { get; set; } = new int[2,9];
             public int[] LastScore { get; set; } = new int[3];
         }
