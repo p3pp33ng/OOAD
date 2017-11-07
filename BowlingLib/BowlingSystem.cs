@@ -36,7 +36,9 @@ namespace BowlingLib
 
         public void CreateANewContest(int[] competitors, int managerId, int timePeriodId, int contestTypeId)
         {
+            var compId = new List<int>();
             var database = new DataBaseRepo();
+
             for (int i = 0; i < competitors.Length; i++)
             {
                 var contest = new Contest
@@ -46,11 +48,25 @@ namespace BowlingLib
                     ManagerId = managerId,
                     TimePeriodId = timePeriodId
                 };
-                var databaseHolder = (DatabaseHolder)database.Save(contest);
-                var match = new Match();
-                var matchId = (DatabaseHolder)database.Save(match);
-                match.MatchId = matchId.PrimaryKey;
-                match.CreateLanes(competitors[i], databaseHolder.PrimaryKey, match, i, competitors.Length);
+                compId.Add(competitors[i]);
+                if (i % 2 == 0)
+                {
+                    var databaseHolder = (DatabaseHolder)database.Save(contest);
+                    var match = new Match();
+                    var matchId = (DatabaseHolder)database.Save(match);
+                    match.MatchId = matchId.PrimaryKey;
+                    match.CreateLanes(compId, databaseHolder.PrimaryKey, match);
+                    compId.Clear();
+                }
+                if (i % 2 == 1 && i == competitors.Length)
+                {
+                    var databaseHolder = (DatabaseHolder)database.Save(contest);
+                    var match = new Match();
+                    var matchId = (DatabaseHolder)database.Save(match);
+                    match.MatchId = matchId.PrimaryKey;
+                    match.CreateLanes(compId, databaseHolder.PrimaryKey, match);
+                    compId.Clear();
+                }
             }
 
             //TODO Skapa matcher med två motspelare.

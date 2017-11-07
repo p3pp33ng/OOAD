@@ -24,7 +24,7 @@ namespace BowlingLib
             return new Party();
         }
 
-        public void CreateLanes(int competitorId, int contestId, Match match, int turncounter, int loopLength)
+        public void CreateLanes(List<int> competitorsId, int contestId, Match match)
         {
             var database = new DataBaseRepo();
             var listOfUnitIds = database.GetAll(new Unit());
@@ -45,37 +45,16 @@ namespace BowlingLib
                     UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
                 });
 
-            if (turncounter % 2 == 0)
+            var lane = new Lane
             {
-                var lane = new Lane
-                {
-                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
-                    QuantityId = quantity.PrimaryKey,
-                    MatchId = match.MatchId
-                };
-                var primaryKeyLane = (DatabaseHolder)database.Save(lane);
-                match.LaneId = primaryKeyLane.PrimaryKey;
-                lane.CreateSerie(primaryKeyLane.PrimaryKey);
-            }
+                UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
+                QuantityId = quantity.PrimaryKey,
+                MatchId = match.MatchId
+            };
 
-            if (turncounter % 2 == 1 && turncounter == loopLength)
-            {
-                var oddQuantity = (DatabaseHolder)database.Save
-                (new Quantity
-                {
-                    Amount = 1,
-                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
-                });
-                var lane = new Lane
-                {
-                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
-                    QuantityId = oddQuantity.PrimaryKey,
-                    MatchId = match.MatchId
-                };
-                var primaryKeyLane = (DatabaseHolder)database.Save(lane);
-                match.LaneId = primaryKeyLane.PrimaryKey;
-                lane.CreateSerie(primaryKeyLane.PrimaryKey);
-            }
+            var primaryKeyLane = (DatabaseHolder)database.Save(lane);
+            match.LaneId = primaryKeyLane.PrimaryKey;
+            lane.CreateSerie(primaryKeyLane.PrimaryKey, competitorsId);
         }
     }
 }
