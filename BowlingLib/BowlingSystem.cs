@@ -4,6 +4,7 @@ using DatabaseRepoLib.Classes;
 using MeasurementLib;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static DatabaseRepoLib.Classes.DataBaseRepo;
 
@@ -78,9 +79,11 @@ namespace BowlingLib
             //TODO Spela matcherna och skapa Score för att lägg till i matcherna.
         }
 
-        public void SeeMatches()
+        public List<Match> SeeMatches(int contestId)
         {
-            //TODO Retunera alla matcher, kanske lägga till så att man kan sortera på år eller liknade.
+            var database = new DataBaseRepo();
+            var result = database.GetAll(new Match()).Cast<Match>().ToList();
+            return result.Where(m => contestId == m.ContestId).ToList();
         }
     }
 }

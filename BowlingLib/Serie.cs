@@ -27,7 +27,11 @@ namespace BowlingLib
             }
             else
             {
+                var point = CalculateSpecialPoint(RollBall(), RollBall());
+                if (SpecialPoints.Strike == point || SpecialPoints.Spare == point)
+                {
 
+                }
             }
 
             return result;
@@ -40,7 +44,7 @@ namespace BowlingLib
             return point;
         }
 
-        public SpecialPoints CalculateSpecialPoint(int firstPoint, int secondPoint)
+        public SpecialPoints CalculateSpecialPoint(int firstPoint, int secondPoint = 0)
         {
             var result = SpecialPoints.Regular;
             if (firstPoint == 10)
