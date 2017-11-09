@@ -5,7 +5,9 @@ using Xunit;
 using BowlingLib;
 using BowlingLib.Service;
 using MeasurementLib;
+using System.Linq;
 using static DatabaseRepoLib.Classes.DataBaseRepo;
+using AccountabilityLib.Classes;
 
 namespace BowlingUnitTests
 {
@@ -14,7 +16,7 @@ namespace BowlingUnitTests
         [Fact]
         public void CreateANewParty()
         {
-            var party = new Party { LegalId="0000000000", Address="Vägen 1", IsManager=true, Name="Manager Managersson" };
+            var party = new Party { LegalId = "0000000000", Address = "Vägen 1", IsManager = true, Name = "Manager Managersson" };
             var bowlingSystem = new BowlingSystem();
             var newParty = bowlingSystem.CreateANewManager(party.LegalId, party.Name, party.Address);
             party.PartyId = newParty.PartyId;
@@ -26,7 +28,7 @@ namespace BowlingUnitTests
         {
             var bowlingSystem = new BowlingSystem();
             var arr = new int[] { 2026, 3002, 3003, 3004 };
-            bowlingSystem.CreateANewContest(arr,4002,1,1);
+            bowlingSystem.CreateANewContest(arr, 4002, 1, 1);
         }
 
         [Fact]
@@ -34,16 +36,19 @@ namespace BowlingUnitTests
         {
             MeasurementService sut = new MeasurementService();
             var result = sut.WhatUnitDoYouNeedBro("SpElare");
-            var unit = new Unit { Name="Spelare" };
+            var unit = new Unit { Name = "Spelare" };
             Assert.Equal(unit.Name, result.Name);
         }
 
         [Fact]
         public void GetWinner()
         {
+            var database = new DataBaseRepo();
             var sut = new BowlingSystem();
-           //var result = sut.GetWinnerOfContestType(1, 1);
-            //Assert.Equal(2026, result);
+            var contest = (Contest)database.GetObject("1011", new Contest());
+            contest.WinnerId = 2026;
+            var result = sut.GetWinnerOfContest(contest);
+            Assert.Equal(contest.WinnerId, result.WinnerId);
         }
         //[Fact]
         //public void PlayRoundTest()

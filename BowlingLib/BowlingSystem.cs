@@ -12,17 +12,46 @@ namespace BowlingLib
 {
     public class BowlingSystem
     {
-        public void GetWinnerOfContestType(Contest contest)
+        public Contest GetWinnerOfContest(Contest contest)
         {
             var result = 0;
             var database = new DataBaseRepo();
+
+            var series = database.GetAll(new Serie())
+                .Cast<Serie>()
+                .ToList();
 
             var players = database.GetAll(new ContestParticipants())
                 .Cast<ContestParticipants>()
                 .Where(c => contest.ContestId == c.ContestId)
                 .ToList();
 
-            contest.Winner = result;
+            var scores = database.GetAll(new Score())
+                .Cast<Score>()
+                .ToList();
+
+            var quantities = database.GetAll(new Quantity())
+                .Cast<Quantity>()
+                .ToList();
+
+
+            //var listOfLaneIdsAndCompetitorId = new Dictionary<int,int>();
+
+            //foreach (ContestParticipants item in database.GetAll(new ContestParticipants()).Cast<ContestParticipants>().Where(c => contest.ContestId == c.ContestId).ToList())
+            //{
+            //    listOfLaneIdsAndCompetitorId.Add(series.First(s => item.CompetitorId == s.PartyId).LaneId, item.CompetitorId);
+            //}
+
+
+
+            //foreach (var laneId in listOfLaneIdsAndCompetitorId)
+            //{
+            //    scores.Where(s => laneId.Key == s.LaneId).ToList();
+            //}
+
+            contest.WinnerId = result;
+            database.Update(contest);
+            return contest;
         }
 
         public Party CreateANewPlayer(string legalId, string name, string address, bool isManager = false)
