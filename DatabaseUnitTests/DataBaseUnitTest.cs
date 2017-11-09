@@ -23,6 +23,12 @@ namespace DatabaseUnitTests
         }
 
         [Fact]
+        public void UpdateTable()
+        {
+            var contest = new Contest { ContestId = 1011, ManagerId=4002,  };
+        }
+
+        [Fact]
         public void SelectOne()
         {
             var timePeriod = new TimePeriod { TimePeriodId = 1, StartDate = DateTime.Now, EndDate = DateTime.Parse("2018-05-28 07:00") };

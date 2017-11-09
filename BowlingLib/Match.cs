@@ -55,7 +55,7 @@ namespace BowlingLib
                 var matchId = (DatabaseHolder)database.Save(match);
                 if (matchId.ExecuteCodes != ExecuteCodes.FailedToExecute)
                 {
-                    lane.CreateSerie(primaryKeyLane.PrimaryKey, competitorsId);
+                    lane.CreateSerie(primaryKeyLane.PrimaryKey, contestId, competitorsId);
                 }
             }
         }

@@ -29,7 +29,7 @@ namespace BowlingLib.Service
         public Quantity CreateANewQuantity(int amount, int unitId)
         {
             DataBaseRepo database = new DataBaseRepo();
-            var result = (DatabaseHolder)database.Save(new Quantity());
+            var result = (DatabaseHolder)database.Save(new Quantity { Amount = amount, UnitId = unitId });
             var quantity = (Quantity)database.GetObject(result.PrimaryKey.ToString(), new Quantity());
             return quantity;
         }

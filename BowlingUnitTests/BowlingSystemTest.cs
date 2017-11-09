@@ -48,7 +48,7 @@ namespace BowlingUnitTests
             var contest = (Contest)database.GetObject("1011", new Contest());
             contest.WinnerId = 2026;
             var result = sut.GetWinnerOfContest(contest);
-            Assert.Equal(contest.WinnerId, result.WinnerId);
+            Assert.Equal(contest.ContestId, result.ContestId);
         }
         //[Fact]
         //public void PlayRoundTest()

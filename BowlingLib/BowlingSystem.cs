@@ -17,8 +17,16 @@ namespace BowlingLib
             var result = 0;
             var database = new DataBaseRepo();
 
-            var series = database.GetAll(new Serie())
+            var players = database
+                .GetAll(new ContestParticipants())
+                .Cast<ContestParticipants>()
+                .Where(p=> contest.ContestId == p.ContestId)
+                .ToList();
+
+            var series = database
+                .GetAll(new Serie())
                 .Cast<Serie>()
+                .Where(s=> contest.ContestId == s.ContestId)
                 .ToList();
 
             var scores = database.GetAll(new Score())
@@ -30,20 +38,25 @@ namespace BowlingLib
             foreach (var serie in series)
             {
                 var listOfSerieIdsAndPartyIds = new Dictionary<int, int>();
-                listOfSerieIdsAndPartyIds.Add(serie.PartyId, serie.SerieId);
-
-                foreach (var item in listOfSerieIdsAndPartyIds)
+                if (players.FirstOrDefault(p=> serie.PartyId == p.CompetitorId) != null)
                 {
-                    var quantity = (Quantity)database.GetObject(scores.First(sco => item.Value == sco.SerieId).QuantityId.ToString(), new Quantity());
-                    higherScore = quantity.Amount;
-                    if (higherScore > currentScore)
-                    {
-                        currentScore = higherScore;
-                        result = item.Key;
-                    }
+                    listOfSerieIdsAndPartyIds.Add(serie.PartyId, serie.SerieId);
                 }
-            }
 
+                if (listOfSerieIdsAndPartyIds.Count != 0)
+                {
+                    foreach (var item in listOfSerieIdsAndPartyIds)
+                    {
+                        var quantity = (Quantity)database.GetObject(scores.First(sco => item.Value == sco.SerieId).QuantityId.ToString(), new Quantity());
+                        higherScore = quantity.Amount;
+                        if (higherScore > currentScore)
+                        {
+                            currentScore = higherScore;
+                            result = item.Key;
+                        }
+                    }
+                }                
+            }
             contest.WinnerId = result;
             database.Update(contest);
             return contest;
