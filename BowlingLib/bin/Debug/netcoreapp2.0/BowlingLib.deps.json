@@ -136,6 +136,9 @@
         }
       },
       "MeasurementLib/1.0.0": {
+        "dependencies": {
+          "DatabaseRepoLib": "1.0.0"
+        },
         "runtime": {
           "MeasurementLib.dll": {}
         }

@@ -5,6 +5,7 @@ using Xunit;
 using BowlingLib;
 using BowlingLib.Service;
 using MeasurementLib;
+using static DatabaseRepoLib.Classes.DataBaseRepo;
 
 namespace BowlingUnitTests
 {
@@ -36,5 +37,15 @@ namespace BowlingUnitTests
             var unit = new Unit { Name="Spelare" };
             Assert.Equal(unit.Name, result.Name);
         }
+
+        //[Fact]
+        //public void PlayRoundTest()
+        //{
+        //    var score = new Score { LaneId=5, QuantityId=8, SerieId=3, UnitId=2  };
+        //    DataBaseRepo database = new DataBaseRepo();
+        //    var result = (DatabaseHolder)database.Save(score);
+        //    var sut = new Serie();
+        //    sut.PlayRound(result.PrimaryKey);
+        //}
     }
 }

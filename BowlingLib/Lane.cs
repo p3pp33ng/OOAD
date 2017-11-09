@@ -21,17 +21,18 @@ namespace BowlingLib
 
         public void CreateSerie(int laneId, List<int> compIds)
         {
-            var unitService = new MeasurementService();
-            var unit = unitService.WhatUnitDoYouNeedBro("poäng");
+            var measurementService = new MeasurementService();
+            var unit = measurementService.WhatUnitDoYouNeedBro("poäng");
+            var quantity = measurementService.CreateANewQuantity(0,unit.UnitId);
             var database = new DataBaseRepo();
-            for (int i = 0; i < compIds.Count; i++)
+            for (int i = 0; i < compIds.Count*3; i++)//To get three series and three scores.
             {
-                var score = new Score { LaneId = laneId, UnitId = unit.UnitId };
+                
                 var serie = new Serie { LaneId = laneId, PartyId = compIds[i], TurnCounter = 10 };
-                var dataHolderScore = (DatabaseHolder)database.Save(score);
-                serie.ScoreId = dataHolderScore.PrimaryKey;
                 var dataHolderSerie = (DatabaseHolder)database.Save(serie);
-                score.SerieId = dataHolderSerie.PrimaryKey;
+                var score = new Score { LaneId = laneId, UnitId = unit.UnitId, QuantityId = quantity.QuantityId, SerieId = dataHolderSerie.PrimaryKey };
+                var dataHolderScore = (DatabaseHolder)database.Save(score);
+                serie.PlayRound(dataHolderScore.PrimaryKey);
             }
         }
     }
