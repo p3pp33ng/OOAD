@@ -50,12 +50,10 @@ namespace BowlingLib
                     TimePeriodId = timePeriodId
                 };
                 compId.Add(competitors[i]);
-                if (i % 2 == 0)
+                if (compId.Count == 2 && i > 0)
                 {
                     var databaseHolder = (DatabaseHolder)database.Save(contest);
-                    var match = new Match();
-                    var matchId = (DatabaseHolder)database.Save(match);
-                    match.MatchId = matchId.PrimaryKey;
+                    var match = new Match { ContestId = databaseHolder.PrimaryKey };
                     match.CreateLanes(compId, databaseHolder.PrimaryKey, match);
                     compId.Clear();
                 }

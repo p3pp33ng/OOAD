@@ -5,6 +5,7 @@ using AccountabilityLib.Classes;
 using static DatabaseRepoLib.Classes.DataBaseRepo;
 using DatabaseRepoLib.Classes;
 using MeasurementLib;
+using DatabaseRepoLib.Interfaces;
 
 namespace BowlingLib
 {
@@ -28,13 +29,13 @@ namespace BowlingLib
         {
             var database = new DataBaseRepo();
             var listOfUnitIds = database.GetAll(new Unit());
-            var unitId = new object();
+            int unitId = 0;
 
-            foreach (var unit in listOfUnitIds)
+            foreach (Unit unit in listOfUnitIds)
             {
-                if (unit.GetType().GetProperty("Name").ToString().ToLower() == "spelare")
+                if (unit.Name.ToLower() == "spelare")
                 {
-                    unitId = unit;
+                    unitId = unit.UnitId;
                 }
             }
             //TODO Bygga upp serier genom lane, även få med båda spelarnas ID:n så att det skapas en separat serie per spelare.
@@ -42,19 +43,28 @@ namespace BowlingLib
                 (new Quantity
                 {
                     Amount = 2,
-                    UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString())
+                    UnitId = unitId
                 });
 
-            var lane = new Lane
+            if (quantity.ExecuteCodes == ExecuteCodes.SuccessToExecute)
             {
-                UnitId = int.Parse(unitId.GetType().GetProperty("UnitId").GetValue(unitId).ToString()),
-                QuantityId = quantity.PrimaryKey,
-                MatchId = match.MatchId
-            };
+                var lane = new Lane
+                {
+                    UnitId = unitId,
+                    QuantityId = quantity.PrimaryKey
+                };
 
-            var primaryKeyLane = (DatabaseHolder)database.Save(lane);
-            match.LaneId = primaryKeyLane.PrimaryKey;
-            lane.CreateSerie(primaryKeyLane.PrimaryKey, competitorsId);
+                var primaryKeyLane = (DatabaseHolder)database.Save(lane);
+                match.LaneId = primaryKeyLane.PrimaryKey;
+                match.QuantityId = quantity.PrimaryKey;
+                match.UnitId = unitId;
+                var matchId = (DatabaseHolder)database.Save(match);
+                lane.MatchId = matchId.PrimaryKey;
+                if (matchId.ExecuteCodes != ExecuteCodes.FailedToExecute)
+                {
+                    lane.CreateSerie(primaryKeyLane.PrimaryKey, competitorsId);
+                }
+            }            
         }
     }
 }
