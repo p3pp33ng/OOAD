@@ -21,33 +21,28 @@ namespace BowlingLib
                 .Cast<Serie>()
                 .ToList();
 
-            var players = database.GetAll(new ContestParticipants())
-                .Cast<ContestParticipants>()
-                .Where(c => contest.ContestId == c.ContestId)
-                .ToList();
-
             var scores = database.GetAll(new Score())
                 .Cast<Score>()
                 .ToList();
 
-            var quantities = database.GetAll(new Quantity())
-                .Cast<Quantity>()
-                .ToList();
+            var higherScore = 0;
+            var currentScore = 0;
+            foreach (var serie in series)
+            {
+                var listOfSerieIdsAndPartyIds = new Dictionary<int, int>();
+                listOfSerieIdsAndPartyIds.Add(serie.PartyId, serie.SerieId);
 
-
-            //var listOfLaneIdsAndCompetitorId = new Dictionary<int,int>();
-
-            //foreach (ContestParticipants item in database.GetAll(new ContestParticipants()).Cast<ContestParticipants>().Where(c => contest.ContestId == c.ContestId).ToList())
-            //{
-            //    listOfLaneIdsAndCompetitorId.Add(series.First(s => item.CompetitorId == s.PartyId).LaneId, item.CompetitorId);
-            //}
-
-
-
-            //foreach (var laneId in listOfLaneIdsAndCompetitorId)
-            //{
-            //    scores.Where(s => laneId.Key == s.LaneId).ToList();
-            //}
+                foreach (var item in listOfSerieIdsAndPartyIds)
+                {
+                    var quantity = (Quantity)database.GetObject(scores.First(sco => item.Value == sco.SerieId).QuantityId.ToString(), new Quantity());
+                    higherScore = quantity.Amount;
+                    if (higherScore > currentScore)
+                    {
+                        currentScore = higherScore;
+                        result = item.Key;
+                    }
+                }
+            }
 
             contest.WinnerId = result;
             database.Update(contest);
@@ -80,13 +75,13 @@ namespace BowlingLib
             {
                 ContestTypeId = contestTypeId,
                 ManagerId = managerId,
-                TimePeriodId = timePeriodId
+                TimePeriodId = timePeriodId,
+                WinnerId = 0
             };
             var databaseHolder = (DatabaseHolder)database.Save(contest);
 
             for (int i = 0; i < competitors.Length; i++)
             {
-                //TODO Skapa ContestParticipants istället för contest.
                 ContestParticipants contestParticipants = new ContestParticipants
                 {
                     ContestId = databaseHolder.PrimaryKey,
@@ -111,14 +106,6 @@ namespace BowlingLib
                     compId.Clear();
                 }
             }
-
-            //TODO Skapa matcher med två motspelare.
-
-            //TODO Skapa en lane för varje match.
-
-            //TODO Skapa tre serier för varje spelare.
-
-            //TODO Spela matcherna och skapa Score för att lägg till i matcherna.
         }
 
         public List<Match> SeeMatches(int contestId)

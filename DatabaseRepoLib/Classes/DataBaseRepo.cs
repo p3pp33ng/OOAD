@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Data;
+using System.Reflection;
 
 namespace DatabaseRepoLib.Classes
 {
@@ -61,6 +62,10 @@ namespace DatabaseRepoLib.Classes
                     if (type != MethodType.GetOne && type != MethodType.GetAll)
                     {
                         object p = prop.GetValue(model).ToString();
+                        if ((string)p == "")
+                        {
+                            p = "0";
+                        }
                         values += p.ToString() + ",";
                     }
                 }
@@ -71,6 +76,10 @@ namespace DatabaseRepoLib.Classes
                     if (type != MethodType.GetOne && type != MethodType.GetAll)
                     {
                         object p = prop.GetValue(model).ToString();
+                        if ((string)p == "")
+                        {
+                            p = "0";
+                        }
                         values += p.ToString();
                     }
                 }
