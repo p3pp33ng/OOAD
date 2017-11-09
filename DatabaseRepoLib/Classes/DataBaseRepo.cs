@@ -85,7 +85,7 @@ namespace DatabaseRepoLib.Classes
                 }
                 else
                 {
-                    if (type != MethodType.GetOne && type != MethodType.GetAll)
+                    if (type != MethodType.GetOne && type != MethodType.GetAll && prop.Name.ToLower().Contains($"{model.GetType().Name.ToLower()}id"))
                     {
                         modelId = prop.GetValue(model).ToString();
                     }
@@ -111,7 +111,11 @@ namespace DatabaseRepoLib.Classes
                     command2.CommandType = CommandType.Text;
                     command2.CommandText = "select @@Identity";
                     command.ExecuteNonQuery();
-                    databaseHolder.PrimaryKey = Convert.ToInt32(command2.ExecuteScalar());
+                    if (type != MethodType.Update)
+                    {
+                        databaseHolder.PrimaryKey = Convert.ToInt32(command2.ExecuteScalar());
+                    }
+                    
                 }
                 catch (Exception e)
                 {

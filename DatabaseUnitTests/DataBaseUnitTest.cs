@@ -25,7 +25,10 @@ namespace DatabaseUnitTests
         [Fact]
         public void UpdateTable()
         {
-            var contest = new Contest { ContestId = 1011, ManagerId=4002,  };
+            var contest = new Contest { ContestId = 1011, ManagerId=4002, ContestTypeId = 1, TimePeriodId = 1, WinnerId = 2026 };
+            var database = new DataBaseRepo();
+            var result = database.Update(contest);
+            Assert.Equal(ExecuteCodes.SuccessToExecute, result);
         }
 
         [Fact]
