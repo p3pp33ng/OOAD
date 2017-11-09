@@ -6,6 +6,7 @@ using static DatabaseRepoLib.Classes.DataBaseRepo;
 using DatabaseRepoLib.Classes;
 using MeasurementLib;
 using DatabaseRepoLib.Interfaces;
+using BowlingLib.Service;
 
 namespace BowlingLib
 {
@@ -28,43 +29,35 @@ namespace BowlingLib
         public void CreateLanes(List<int> competitorsId, int contestId, Match match)
         {
             var database = new DataBaseRepo();
-            var listOfUnitIds = database.GetAll(new Unit());
-            int unitId = 0;
 
-            foreach (Unit unit in listOfUnitIds)
-            {
-                if (unit.Name.ToLower() == "spelare")
-                {
-                    unitId = unit.UnitId;
-                }
-            }
+            var unitService = new MeasurementService();
+            var unit = unitService.WhatUnitDoYouNeedBro("spelare");
             //TODO Bygga upp serier genom lane, även få med båda spelarnas ID:n så att det skapas en separat serie per spelare.
             var quantity = (DatabaseHolder)database.Save
                 (new Quantity
                 {
                     Amount = 2,
-                    UnitId = unitId
+                    UnitId = unit.UnitId
                 });
 
             if (quantity.ExecuteCodes == ExecuteCodes.SuccessToExecute)
             {
                 var lane = new Lane
                 {
-                    UnitId = unitId,
+                    UnitId = unit.UnitId,
                     QuantityId = quantity.PrimaryKey
                 };
 
                 var primaryKeyLane = (DatabaseHolder)database.Save(lane);
                 match.LaneId = primaryKeyLane.PrimaryKey;
                 match.QuantityId = quantity.PrimaryKey;
-                match.UnitId = unitId;
+                match.UnitId = unit.UnitId;
                 var matchId = (DatabaseHolder)database.Save(match);
-                lane.MatchId = matchId.PrimaryKey;
                 if (matchId.ExecuteCodes != ExecuteCodes.FailedToExecute)
                 {
                     lane.CreateSerie(primaryKeyLane.PrimaryKey, competitorsId);
                 }
-            }            
+            }
         }
     }
 }

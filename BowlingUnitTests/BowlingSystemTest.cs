@@ -3,6 +3,8 @@ using DatabaseRepoLib.Classes;
 using System;
 using Xunit;
 using BowlingLib;
+using BowlingLib.Service;
+using MeasurementLib;
 
 namespace BowlingUnitTests
 {
@@ -24,6 +26,15 @@ namespace BowlingUnitTests
             var bowlingSystem = new BowlingSystem();
             var arr = new int[] { 2026, 3002, 3003, 3004 };
             bowlingSystem.CreateANewContest(arr,4002,1,1);
+        }
+
+        [Fact]
+        public void GetAUnitByName()
+        {
+            MeasurementService sut = new MeasurementService();
+            var result = sut.WhatUnitDoYouNeedBro("SpElare");
+            var unit = new Unit { Name="Spelare" };
+            Assert.Equal(unit.Name, result.Name);
         }
     }
 }

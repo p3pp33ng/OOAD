@@ -1,8 +1,10 @@
-﻿using DatabaseRepoLib.Classes;
+﻿using BowlingLib.Service;
+using DatabaseRepoLib.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using static DatabaseRepoLib.Classes.DataBaseRepo;
+using MeasurementLib;
 
 namespace BowlingLib
 {
@@ -19,10 +21,12 @@ namespace BowlingLib
 
         public void CreateSerie(int laneId, List<int> compIds)
         {
+            var unitService = new MeasurementService();
+            var unit = unitService.WhatUnitDoYouNeedBro("poäng");
             var database = new DataBaseRepo();
             for (int i = 0; i < compIds.Count; i++)
             {
-                var score = new Score { LaneId = laneId };
+                var score = new Score { LaneId = laneId, UnitId = unit.UnitId };
                 var serie = new Serie { LaneId = laneId, PartyId = compIds[i], TurnCounter = 10 };
                 var dataHolderScore = (DatabaseHolder)database.Save(score);
                 serie.ScoreId = dataHolderScore.PrimaryKey;

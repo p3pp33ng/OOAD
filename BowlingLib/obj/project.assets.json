@@ -370,6 +370,9 @@
       "MeasurementLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "DatabaseRepoLib": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/MeasurementLib.dll": {}
         },
