@@ -42,7 +42,8 @@ namespace BowlingUnitTests
         public void GetWinner()
         {
             var sut = new BowlingSystem();
-            sut.GetWinnerOfContest(1, 1);
+           //var result = sut.GetWinnerOfContestType(1, 1);
+            //Assert.Equal(2026, result);
         }
         //[Fact]
         //public void PlayRoundTest()

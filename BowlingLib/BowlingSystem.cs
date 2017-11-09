@@ -12,17 +12,17 @@ namespace BowlingLib
 {
     public class BowlingSystem
     {
-        public void GetWinnerOfContest(int contestTypeId, int timeperiodId)
+        public void GetWinnerOfContestType(Contest contest)
         {
+            var result = 0;
             var database = new DataBaseRepo();
-            var databaseHolder = database.GetAll(new Contest())
-                .Cast<Contest>()
-                .Where(c => contestTypeId == c.ContestTypeId || timeperiodId == c.TimePeriodId)
-                .ToList();
-            //foreach (Contest contest in database.GetAll(new Contest()).ToList())
-            //{
 
-            //}
+            var players = database.GetAll(new ContestParticipants())
+                .Cast<ContestParticipants>()
+                .Where(c => contest.ContestId == c.ContestId)
+                .ToList();
+
+            contest.Winner = result;
         }
 
         public Party CreateANewPlayer(string legalId, string name, string address, bool isManager = false)
@@ -47,27 +47,34 @@ namespace BowlingLib
         {
             var compId = new List<int>();
             var database = new DataBaseRepo();
+            var contest = new Contest
+            {
+                ContestTypeId = contestTypeId,
+                ManagerId = managerId,
+                TimePeriodId = timePeriodId
+            };
+            var databaseHolder = (DatabaseHolder)database.Save(contest);
 
             for (int i = 0; i < competitors.Length; i++)
             {
-                var contest = new Contest
+                //TODO Skapa ContestParticipants istället för contest.
+                ContestParticipants contestParticipants = new ContestParticipants
                 {
-                    CompetitorId = competitors[i],
-                    ContestTypeId = contestTypeId,
-                    ManagerId = managerId,
-                    TimePeriodId = timePeriodId
+                    ContestId = databaseHolder.PrimaryKey,
+                    CompetitorId = competitors[i]
                 };
+                database.Save(new ContestParticipants());
                 compId.Add(competitors[i]);
                 if (compId.Count == 2 && i > 0)
                 {
-                    var databaseHolder = (DatabaseHolder)database.Save(contest);
+
                     var match = new Match { ContestId = databaseHolder.PrimaryKey };
                     match.CreateLanes(compId, databaseHolder.PrimaryKey, match);
                     compId.Clear();
                 }
                 if (i % 2 == 1 && i == competitors.Length)
                 {
-                    var databaseHolder = (DatabaseHolder)database.Save(contest);
+                    databaseHolder = (DatabaseHolder)database.Save(contest);
                     var match = new Match();
                     var matchId = (DatabaseHolder)database.Save(match);
                     match.MatchId = matchId.PrimaryKey;

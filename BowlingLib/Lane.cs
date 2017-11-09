@@ -26,13 +26,12 @@ namespace BowlingLib
             var quantity = measurementService.CreateANewQuantity(0,unit.UnitId);
             var database = new DataBaseRepo();
             for (int i = 0; i < compIds.Count*3; i++)//To get three series and three scores.
-            {
-                
+            {                
                 var serie = new Serie { LaneId = laneId, PartyId = compIds[i], TurnCounter = 10 };
                 var dataHolderSerie = (DatabaseHolder)database.Save(serie);
                 var score = new Score { LaneId = laneId, UnitId = unit.UnitId, QuantityId = quantity.QuantityId, SerieId = dataHolderSerie.PrimaryKey };
                 var dataHolderScore = (DatabaseHolder)database.Save(score);
-                serie.PlayRound(dataHolderScore.PrimaryKey);
+                //serie.PlayRound(dataHolderScore.PrimaryKey);
             }
         }
     }
