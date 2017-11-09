@@ -38,6 +38,12 @@ namespace BowlingUnitTests
             Assert.Equal(unit.Name, result.Name);
         }
 
+        [Fact]
+        public void GetWinner()
+        {
+            var sut = new BowlingSystem();
+            sut.GetWinnerOfContest(1, 1);
+        }
         //[Fact]
         //public void PlayRoundTest()
         //{

@@ -12,9 +12,17 @@ namespace BowlingLib
 {
     public class BowlingSystem
     {
-        public void GetWinnerOfContest()
+        public void GetWinnerOfContest(int contestTypeId, int timeperiodId)
         {
-            //TODO Så man får vinnaren för det året eller match eller tävling
+            var database = new DataBaseRepo();
+            var databaseHolder = database.GetAll(new Contest())
+                .Cast<Contest>()
+                .Where(c => contestTypeId == c.ContestTypeId || timeperiodId == c.TimePeriodId)
+                .ToList();
+            //foreach (Contest contest in database.GetAll(new Contest()).ToList())
+            //{
+
+            //}
         }
 
         public Party CreateANewPlayer(string legalId, string name, string address, bool isManager = false)
