@@ -14,13 +14,18 @@ namespace BowlingUnitTests
     public class BowlingSystemTest
     {
         [Fact]
-        public void CreateANewParty()
+        public void CreateANewPlayer()
         {
-            var party = new Party { LegalId = "0000000000", Address = "Vägen 1", IsManager = true, Name = "Manager Managersson" };
-            var bowlingSystem = new BowlingSystem();
-            var newParty = bowlingSystem.CreateANewManager(party.LegalId, party.Name, party.Address);
-            party.PartyId = newParty.PartyId;
-            Assert.Equal(party, newParty);
+            var sut = new BowlingSystem();
+            var result = sut.CreateANewPlayer("8405024758", "Matts Mattsson", "Bowlinghallen");
+            Assert.Equal("Bowlinghallen", result.Address);
+        }
+
+        public void CreateANewManager()
+        {
+            var sut = new BowlingSystem();
+            var result = sut.CreateANewManager("8405024758", "Peppe peppson", "Bowlinghallen 1");
+            Assert.Equal("Bowlinghallen 1", result.Address);
         }
 
         [Fact]
