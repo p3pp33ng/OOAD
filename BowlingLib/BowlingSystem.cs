@@ -12,6 +12,26 @@ namespace BowlingLib
 {
     public class BowlingSystem
     {
+        public void GetWInnerOfTheYear(int year)
+        {
+            var database = new DataBaseRepo();
+            var contestList = database.GetAll(new Contest())
+                .Cast<Contest>()
+                .Where(c => year == database.GetAll(new TimePeriod()).Cast<TimePeriod>().First(t => year == t.StartDate.Year && year == t.EndDate.Year).StartDate.Year)//TODO Måste ändra denna linq så att den söker på contest Timeperiod inte på alla timeperiods.
+                .ToList();
+            List<int> winnerList = new List<int>();
+            foreach (var contest in contestList)
+            {
+                var contestWinner = GetWinnerOfContest(contest);
+                winnerList.Add(contest.WinnerId);
+            }
+            winnerList.Sort();
+            foreach (var winnerId in winnerList)
+            {
+                //TODO Kolla vilket id som dyker upp mest.
+            }
+        }
+
         public Contest GetWinnerOfContest(Contest contest)
         {
             var result = 0;
@@ -20,13 +40,13 @@ namespace BowlingLib
             var players = database
                 .GetAll(new ContestParticipants())
                 .Cast<ContestParticipants>()
-                .Where(p=> contest.ContestId == p.ContestId)
+                .Where(p => contest.ContestId == p.ContestId)
                 .ToList();
 
             var series = database
                 .GetAll(new Serie())
                 .Cast<Serie>()
-                .Where(s=> contest.ContestId == s.ContestId)
+                .Where(s => contest.ContestId == s.ContestId)
                 .ToList();
 
             var scores = database.GetAll(new Score())
@@ -38,7 +58,7 @@ namespace BowlingLib
             foreach (var serie in series)
             {
                 var listOfSerieIdsAndPartyIds = new Dictionary<int, int>();
-                if (players.FirstOrDefault(p=> serie.PartyId == p.CompetitorId) != null)
+                if (players.FirstOrDefault(p => serie.PartyId == p.CompetitorId) != null)
                 {
                     listOfSerieIdsAndPartyIds.Add(serie.PartyId, serie.SerieId);
                 }
@@ -55,7 +75,7 @@ namespace BowlingLib
                             result = item.Key;
                         }
                     }
-                }                
+                }
             }
             contest.WinnerId = result;
             database.Update(contest);
