@@ -7,3 +7,5 @@ C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\D
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.dll
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.pdb
 C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\obj\Debug\netcoreapp2.0\MeasurementLib.csprojResolveAssemblyReference.cache
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.dll
+C:\Users\Jesper Engdahl\source\repos\OOADInlämningsUppgift\MeasurementLib\bin\Debug\netcoreapp2.0\DatabaseRepoLib.pdb

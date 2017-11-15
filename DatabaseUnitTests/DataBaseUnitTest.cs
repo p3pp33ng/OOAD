@@ -6,6 +6,7 @@ using DatabaseRepoLib.Interfaces;
 using AccountabilityLib.Classes;
 using static DatabaseRepoLib.Classes.DataBaseRepo;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DatabaseUnitTests
 {
@@ -15,9 +16,18 @@ namespace DatabaseUnitTests
         public void SaveToTable()
         {
             //var timePeriod = new TimePeriod { StartDate=DateTime.Now, EndDate=DateTime.Parse("2018-05-28 07:00") };
-            var party = new Party { Address="Vägen 13", IsManager=false, LegalId="8705281425", Name="Test Testsson" };
+            var party = new ContestType {Name="Träningstävling" };
             var dbRepo = new DataBaseRepo();
-            var result = dbRepo.Save(party);
+            var result = (DatabaseHolder)dbRepo.Save(party);
+            Assert.Equal(ExecuteCodes.SuccessToExecute, result.ExecuteCodes);
+        }
+
+        [Fact]
+        public void UpdateTable()
+        {
+            var contest = new Contest { ContestId = 1011, ManagerId=4002, ContestTypeId = 1, TimePeriodId = 1, WinnerId = 2026 };
+            var database = new DataBaseRepo();
+            var result = database.Update(contest);
             Assert.Equal(ExecuteCodes.SuccessToExecute, result);
         }
 
@@ -48,8 +58,9 @@ namespace DatabaseUnitTests
             var dbRepo = new DataBaseRepo();
             var list = new List<Party>();
             list.Add(party);
-            //List<Party> foundPartyList = dbRepo.GetAll(new Party());
-            //Assert.Equal(list, foundPartyList);
+            var foundPartyList = dbRepo.GetAll(new Party());
+            var list2 = foundPartyList.Cast<Party>().ToList();
+            Assert.Equal(party, list2[0]);
         }
     }
 }

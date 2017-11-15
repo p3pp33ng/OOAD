@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Data;
+using System.Reflection;
 
 namespace DatabaseRepoLib.Classes
 {
@@ -61,6 +62,10 @@ namespace DatabaseRepoLib.Classes
                     if (type != MethodType.GetOne && type != MethodType.GetAll)
                     {
                         object p = prop.GetValue(model).ToString();
+                        if ((string)p == "")
+                        {
+                            p = "0";
+                        }
                         values += p.ToString() + ",";
                     }
                 }
@@ -71,12 +76,16 @@ namespace DatabaseRepoLib.Classes
                     if (type != MethodType.GetOne && type != MethodType.GetAll)
                     {
                         object p = prop.GetValue(model).ToString();
+                        if ((string)p == "")
+                        {
+                            p = "0";
+                        }
                         values += p.ToString();
                     }
                 }
                 else
                 {
-                    if (type != MethodType.GetOne && type != MethodType.GetAll)
+                    if (type != MethodType.GetOne && type != MethodType.GetAll && prop.Name.ToLower().Contains($"{model.GetType().Name.ToLower()}id"))
                     {
                         modelId = prop.GetValue(model).ToString();
                     }
@@ -102,7 +111,11 @@ namespace DatabaseRepoLib.Classes
                     command2.CommandType = CommandType.Text;
                     command2.CommandText = "select @@Identity";
                     command.ExecuteNonQuery();
-                    databaseHolder.PrimaryKey = Convert.ToInt32(command2.ExecuteScalar());
+                    if (type != MethodType.Update)
+                    {
+                        databaseHolder.PrimaryKey = Convert.ToInt32(command2.ExecuteScalar());
+                    }
+                    
                 }
                 catch (Exception e)
                 {
@@ -118,29 +131,18 @@ namespace DatabaseRepoLib.Classes
             {
                 try
                 {
-                    //TODO Bygga upp en klass och sen retunera denna.
                     command.ExecuteNonQuery();
 
                     var reader = command.ExecuteReader();
 
-                    //var modelIdName = model.GetType().GetProperty($"{model.GetType().Name}Id").ToString();
-                    //var sqlTableName = "";
                     var list = model.GetType().GetProperties();
 
                     while (reader.Read())
                     {
                         for (int i = 0; i < list.Length; i++)
                         {
-                            if (!list[i].GetType().ToString().Contains("Boolean"))
-                            {
-                                list[i].SetValue(model, reader[reader.GetName(i)]);
-                            }
-                            else
-                            {
-                                list[i].SetValue(model, (bool)reader[reader.GetName(i)]);
-                            }
+                            list[i].SetValue(model, reader[reader.GetName(i)]);
                         }
-                        //databaseHolder.Model = new object { (model.GetType().GetProperty($"{model.GetType().Name}Id").GetType() = int.Parse(model.GetType().GetProperty($"{model.GetType().Name}Id").GetValue(model).ToString()) };
                     }
                     databaseHolder.Model = model;
                     reader.Close();
@@ -155,7 +157,7 @@ namespace DatabaseRepoLib.Classes
                     con.Close();
                 }
             }
-            else
+            else if(type == MethodType.GetAll)
             {
                 try
                 {
@@ -164,9 +166,16 @@ namespace DatabaseRepoLib.Classes
 
                     var reader = command.ExecuteReader();
 
+                    var list = model.GetType().GetProperties();
                     while (reader.Read())
                     {
-
+                        var newModel = Activator.CreateInstance(model.GetType());
+                        for (int i = 0; i < list.Length; i++)
+                        {
+                            object value = reader[reader.GetName(i)];
+                            list[i].SetValue(newModel, value);
+                        }
+                        databaseHolder.List.Add(newModel);
                     }
                     reader.Close();
                 }
@@ -280,7 +289,7 @@ namespace DatabaseRepoLib.Classes
 
         public List<object> GetAll(object model)
         {
-            var result = DataBaseHandle(model, MethodType.GetOne);
+            var result = DataBaseHandle(model, MethodType.GetAll);
 
             return result.List;
         }

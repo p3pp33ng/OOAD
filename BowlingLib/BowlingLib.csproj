@@ -5,8 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseRepoLib\DatabaseRepoLib.csproj" />
     <ProjectReference Include="..\InterfacesAndClasses\AccountabilityLib.csproj" />
     <ProjectReference Include="..\MeasurementLib\MeasurementLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\" />
   </ItemGroup>
 
 </Project>
