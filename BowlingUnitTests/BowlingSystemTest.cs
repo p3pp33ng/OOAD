@@ -58,7 +58,9 @@ namespace BowlingUnitTests
         [Fact]
         public void GetWinnerOfTheYear()
         {
-            
+            var sut = new BowlingSystem();
+            var result = sut.GetWInnerOfTheYear(2017);
+            Assert.Equal(0,result.PartyId);
         }
     }
 }

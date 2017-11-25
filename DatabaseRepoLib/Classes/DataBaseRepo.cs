@@ -114,8 +114,7 @@ namespace DatabaseRepoLib.Classes
                     if (type != MethodType.Update)
                     {
                         databaseHolder.PrimaryKey = Convert.ToInt32(command2.ExecuteScalar());
-                    }
-                    
+                    }                    
                 }
                 catch (Exception e)
                 {
@@ -189,7 +188,6 @@ namespace DatabaseRepoLib.Classes
                     con.Close();
                 }
             }
-
             return databaseHolder;
         }
 
